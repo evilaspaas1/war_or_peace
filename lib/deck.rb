@@ -1,3 +1,4 @@
+require "pry"
 class Deck
   attr_reader :cards
   def initialize(cards)
@@ -16,5 +17,11 @@ class Deck
       end
     end
     high_ranked_cards
+  end
+
+  def percent_high_ranking
+    percentage = high_ranking_cards.length.to_f / @cards.length.to_f
+    multiplied = percentage * 100
+    multiplied.round(2)
   end
 end
