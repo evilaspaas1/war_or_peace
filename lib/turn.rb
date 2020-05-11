@@ -13,17 +13,33 @@ class Turn
   end
 
   def type
-    :basic
-  end
-
-  def winner
-#binding.pry
-    if @player1.deck.cards[0].rank > @player2.deck.cards[0].rank
-      @player1
-    else
-      @player2
+    #binding.pry
+    if @player1.deck.cards[0].rank != @player2.deck.cards[0].rank
+      :basic
+    elsif @player1.deck.cards[0].rank == @player2.deck.cards[0].rank &&
+       @player1.deck.cards[2].rank == @player2.deck.cards[2].rank
+       :mutually_assured_destruction
+     elsif @player1.deck.cards[0].rank == @player2.deck.cards[0].rank
+       :war
     end
   end
+
+
+  def winner
+    if @player1.deck.cards[0].rank == @player2.deck.cards[0].rank && @player1.deck.cards[2].rank == @player2.deck.cards[2].rank
+       "No Winner"
+     elsif @player1.deck.cards[0].rank == @player2.deck.cards[0].rank && @player1.deck.cards[2].rank > @player2.deck.cards[2].rank
+       @player1
+       binding.pry
+     elsif @player1.deck.cards[0].rank == @player2.deck.cards[0].rank && @player1.deck.cards[2].rank < @player2.deck.cards[2].rank
+       @player2
+       # binding.pry
+     elsif @player1.deck.cards[0].rank > @player2.deck.cards[0].rank
+       @player1
+     else
+       @player2
+     end
+   end
 
   def pile_cards
     #binding.pry
