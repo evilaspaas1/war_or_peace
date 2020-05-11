@@ -30,10 +30,8 @@ class Turn
        "No Winner"
      elsif @player1.deck.cards[0].rank == @player2.deck.cards[0].rank && @player1.deck.cards[2].rank > @player2.deck.cards[2].rank
        @player1
-       binding.pry
      elsif @player1.deck.cards[0].rank == @player2.deck.cards[0].rank && @player1.deck.cards[2].rank < @player2.deck.cards[2].rank
        @player2
-       # binding.pry
      elsif @player1.deck.cards[0].rank > @player2.deck.cards[0].rank
        @player1
      else

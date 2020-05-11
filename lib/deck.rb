@@ -29,4 +29,11 @@ class Deck
     @cards.shift
     @cards
   end
+
+  def add_card(card)
+    @card4 = card
+    @cards << card
+    @cards.shift
+    @cards
+  end
 end
