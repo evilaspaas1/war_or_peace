@@ -24,4 +24,8 @@ class Deck
     multiplied = percentage * 100
     multiplied.round(2)
   end
+
+  def remove_card
+    @cards.shift
+  end
 end
