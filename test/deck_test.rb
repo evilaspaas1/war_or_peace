@@ -24,6 +24,6 @@ class DeckTest < Minitest::Test
   end
 
   def test_high_ranking_cards
-    assert_equal [@card1, @card2], @deck.high_ranking_cards
+    assert_equal [@card1, @card3], @deck.high_ranking_cards
   end
 end
