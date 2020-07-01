@@ -12,6 +12,7 @@ class CardTest < Minitest::Test
   end
 
   def test_it_has_readable_attributes
+    skip
     assert_equal :heart, @card.suit
     assert_equal 'Jack', @card.value
     assert_equal 11, @card.rank
