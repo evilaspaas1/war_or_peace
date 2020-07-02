@@ -8,4 +8,10 @@ class Turn
     @player2 = player2
     @spoils_of_war = []
   end
+
+  def type
+    if @player1.deck.cards[0] != @player2.deck.cards[0]
+      :basic
+    end 
+  end
 end
