@@ -40,4 +40,9 @@ class TurnTest < Minitest::Test
   def test_it_can_show_the_winner
     assert_equal @player1, @turn.winner
   end
+
+  def test_it_can_pile_cards
+    @turn.pile_cards
+    assert_equal [@card1, @card3], @turn.spoils_of_war
+  end
 end
