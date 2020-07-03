@@ -36,13 +36,17 @@ class TurnTest < Minitest::Test
   def test_it_can_get_turn_type
     assert_equal :basic, @turn.type
     @deck2 = Deck.new([@card4, @card3, @card6, @card7])
-  @player2 = Player.new("Aurora", @deck2)
-  @turn = Turn.new(@player1, @player2)
+    @player2 = Player.new("Aurora", @deck2)
+    @turn = Turn.new(@player1, @player2)
     assert_equal :war, @turn.type
   end
 
   def test_it_can_show_the_winner
     assert_equal @player1, @turn.winner
+    @deck2 = Deck.new([@card4, @card3, @card6, @card7])
+    @player2 = Player.new("Aurora", @deck2)
+    @turn = Turn.new(@player1, @player2)
+    assert_equal @player2, @turn.winner
   end
 
   def test_it_can_pile_cards
