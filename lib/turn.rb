@@ -10,10 +10,13 @@ class Turn
   end
 
   def type
-    if @player1.deck.cards[0].rank == @player2.deck.cards[0].rank
-      :war
+    if @player1.deck.cards[0].rank == @player2.deck.cards[0].rank &&
+      @player1.deck.cards[2].rank == @player2.deck.cards[2].rank
+      :mutually_assured_destruction
     elsif @player1.deck.cards[0].rank != @player2.deck.cards[0].rank
       :basic
+    else @player1.deck.cards[0].rank == @player2.deck.cards[0].rank
+      :war
     end
   end
 
