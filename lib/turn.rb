@@ -10,7 +10,9 @@ class Turn
   end
 
   def type
-    if @player1.deck.cards[0].rank != @player2.deck.cards[0].rank
+    if @player1.deck.cards[0].rank == @player2.deck.cards[0].rank
+      :war
+    elsif @player1.deck.cards[0].rank != @player2.deck.cards[0].rank
       :basic
     end
   end
