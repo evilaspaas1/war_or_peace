@@ -63,7 +63,7 @@ class GameSetup
       p "The players today are Megan and Aurora."
       p "Type 'GO' to start the game!"
       p "_________________________________"
-      input = gets.chomp
+      input = gets.chomp.upcase
     end
   end
 end
