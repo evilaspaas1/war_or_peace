@@ -93,7 +93,7 @@ class TurnTest < Minitest::Test
     @player1 = Player.new("Megan", @deck1)
     @player2 = Player.new("Aurora", @deck2)
     @turn = Turn.new(@player1, @player2)
-    expected = [@card1, @card2, @card5, @card4, @card3, @card6]
+    expected = [@card1, @card4, @card2, @card3, @card5, @card6]
     @turn.pile_cards
     assert_equal expected, @turn.spoils_of_war
     @card1 = Card.new(:heart, 'Jack', 11)
