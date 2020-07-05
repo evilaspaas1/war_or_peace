@@ -6,13 +6,17 @@ class Deck
   end
 
   def rank_of_card_at(index)
-    @cards[index].rank
+    if @cards[index].nil?
+      0
+    else
+      @cards[index].rank
+    end
   end
 
   def high_ranking_cards
     high_ranked_cards = []
     @cards.each do |card|
-      if card.rank >= 11
+      if card.rank >= 10
         high_ranked_cards << card
       end
     end
