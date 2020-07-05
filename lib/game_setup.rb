@@ -1,4 +1,8 @@
+require './lib/card'
+require './lib/deck'
+require './lib/player'
 require './lib/turn'
+require 'pry'
 
 class GameSetup
   attr_reader :turn_counter
@@ -16,26 +20,30 @@ class GameSetup
   def play_game
     @turn_counter = 1
 
-    until game_over? do
+    until game_over? == true do
       turn = Turn.new(@player1, @player2)
-      p "Turn Type #{turn.type}"
+      p "Turn Type: #{turn.type}"
+      type = turn.type
+      winner = turn.winner
+      # print_turn_outcome(type, winner)
 
       turn.pile_cards
-      turn.award_spoils(turn.winner)
-
+      turn.award_spoils(winner)
       @turn_counter += 1
-      print_turn_outcome(turn)
+
+      print_turn_outcome(type, winner)
+
+      #game_over?
     end
     print_game_outcome(turn)
   end
 
-  def print_turn_outcome(turn)
-    case turn.type
-    when :basic
-      p "Turn #{turn_counter}: #{turn.winner.name} won 2 cards"
-    when :war
-      p "Turn #{turn_counter}: WAR - #{turn.winner.name} won 6 cards"
-    when :mutually_assured_destruction
+  def print_turn_outcome(type, winner)
+    if type == :basic
+      p "Turn #{turn_counter}: #{winner.name} won 2 cards"
+    elsif type == :war
+      p "Turn #{turn_counter}: WAR - #{winner.name} won 6 cards"
+    else
       p "Turn #{turn_counter}: *mutually_assured_destruction* 6 cards removed from play"
     end
   end
