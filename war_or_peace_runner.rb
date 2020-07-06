@@ -9,9 +9,7 @@ standard_deck = []
 
 suits.each do |suit|
   2.upto(10) do |value|
-    2.upto(10) do |rank|
-      standard_deck << Card.new(:suit, "#{value}", rank)
-    end
+    standard_deck << Card.new(:suit, "#{value}", value)
   end
   standard_deck << Card.new(:suit, "Jack", 11)
   standard_deck << Card.new(:suit, "Queen", 12)
